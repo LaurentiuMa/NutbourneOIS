@@ -1,0 +1,78 @@
+﻿<Window Background="#202223"
+        x:Class="NutbourneOIS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NutbourneOIS"
+        xmlns:uc="clr-namespace:NutbourneOIS.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1200">
+    
+    
+    
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".7*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="logo"
+               Content="NOIS"
+               Grid.Column="0"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="70"
+               Foreground="#0EFFAF"
+               FontFamily="Calibri"
+               FontWeight="Bold"/>
+        <Button x:Name="NewItemButton"
+                Style="{StaticResource buttonStyle}"
+                Click="NewItemButton_Click"
+                Content="New"
+                Grid.Column="0"
+                Grid.Row="2"
+                />
+        <Button x:Name="UpdateButton"
+                Style="{StaticResource buttonStyle}"
+                Click="UpdateButton_Click"
+                Content="Update "
+                Grid.Column="0"
+                Grid.Row="3"/>
+        <Button x:Name="CompleteButton"
+                Style="{StaticResource buttonStyle}"
+                Click="CompleteButton_Click"
+                Content="Completed"
+                Grid.Column="0"
+                Grid.Row="4"/>
+                
+        <StackPanel Margin="10" 
+                    Grid.Column="1" 
+                    Grid.Row="0" 
+                    Grid.RowSpan="6" 
+                    Background="#202223">
+            <ListView x:Name="itemsListView"
+                      Height="660"
+                      BorderBrush="#0EFFAF"
+                      Margin="5"
+                      Background="#202223">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <uc:ItemControl Item="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
