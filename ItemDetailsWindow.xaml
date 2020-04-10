@@ -1,23 +1,89 @@
-﻿<Window x:Class="NutbourneOIS.ItemDetailsWindow"
+﻿<Window 
+        Background="#202223"
+        ResizeMode="NoResize"    
+    
+        x:Class="NutbourneOIS.ItemDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NutbourneOIS"
         mc:Ignorable="d"
-        Title="ItemDetailsWindow" Height="450" Width="800">
-    <StackPanel Margin="10">
+        Title="ItemDetailsWindow" Height="750" Width="1200">
+
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="ticketNumberLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Ticket number"
+               Grid.Column="0"
+               Grid.Row="0"/>
         <TextBox x:Name="ticketNumberTextBox"
-                     Margin="0,0,0,5"/>
+                 Style="{StaticResource textBoxStyle}"
+                 PreviewTextInput="NumericOnly"
+                 MaxLength="9"
+                 Grid.Row="0"
+                 Grid.Column="1"/>
+
+        <Label x:Name="itemTypeLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Item type"
+               Grid.Column="0"
+               Grid.Row="1"/>
         <TextBox x:Name="itemTypeTextBox"
-                     Margin="0,0,0,5"/>
+                 Style="{StaticResource textBoxStyle}"
+                 MaxLength="25"
+                 Grid.Row="1"
+                 Grid.Column="1"/>
+
+        <Label x:Name="itemDescriptionLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Description"
+               Grid.Column="0"
+               Grid.Row="2"/>
         <TextBox x:Name="itemDescriptionTextBox"
-                     Margin="0,0,0,5"/>
+                 Style="{StaticResource textBoxStyle}"
+                 VerticalScrollBarVisibility="Visible"
+                 TextWrapping="Wrap"
+                 Grid.Row="2"
+                 Grid.Column="2"
+                 Grid.RowSpan="2"/>
+
+        <Label x:Name="engineerLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Engineer"
+               Grid.Column="0"
+               Grid.Row="4"/>
         <TextBox x:Name="engineerTextBox"
-                     Margin="0,0,0,5"/>
+                 Style="{StaticResource textBoxStyle}"
+                 MaxLength="25"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 />
+
         <Button Content="Update"
-                Margin="0,0,0,5"
-                    x:Name="updateButton"
-                    Click="UpdateButton_Click"/>
-    </StackPanel>
+                x:Name="updateButton"
+                Style="{StaticResource buttonStyle}"
+                Click="UpdateButton_Click"
+                Grid.Column="0"
+                Grid.Row="5"
+                />
+
+        
+
+    </Grid>
 </Window>
