@@ -1,0 +1,136 @@
+﻿<Window x:Class="NutbourneOIS.LoginWindow"
+        
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        
+        xmlns:iconPacks="using:MahApps.Metro.IconPacks.Core"
+        
+        MouseDown="Window_MouseDown"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NutbourneOIS" xmlns:iconPacks1="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="380">
+   
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="10"
+                    Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#202223" Offset="0.0"/>
+                        <GradientStop Color="#202343" Offset="2"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                
+            </Border>
+
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right">
+                <iconPacks1:PackIconMaterial 
+                    Kind="ExitRun"
+                    Margin="0,5,5,0"
+                    Width="20"
+                    Height="20"
+                    MouseDown="Exit_MouseDown"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"/>
+                
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="Images/logo.png" Width="100"/>
+                <TextBlock Text="Organised Inventory System"
+                           FontWeight="Light"
+                           FontSize="22"
+                           FontFamily="Helvetica"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Text="Username"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="235"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                         Height="25"
+                         Margin="63,0,0,0"/>
+
+                    <iconPacks1:PackIconMaterial 
+                    Kind="Account"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    />
+                </StackPanel>
+
+                <Border Width="250"
+                    Height="2"
+                    Background="White"
+                    Opacity="0.5"
+                />
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <PasswordBox FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Password="Password"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="235"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                         Height="25"
+                         Margin="63,0,0,0"/>
+
+                    <iconPacks1:PackIconMaterial 
+                    Kind="TextboxPassword"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"/>
+                </StackPanel>
+
+                <Border Width="250"
+                    Height="2"
+                    Background="White"
+                    Opacity="0.5"/>
+
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{StaticResource buttonStyle}"
+                            Click="LoginButton_Click"
+                            Width="90" 
+                            Height="30" 
+                            Content="LOGIN"
+                            BorderBrush="White"
+                            FontSize="20"/>
+
+                </StackPanel>
+                
+            </StackPanel>
+
+           
+
+        </Grid>
+    </Grid>
+</Window>

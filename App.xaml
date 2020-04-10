@@ -2,12 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:NutbourneOIS"
-             StartupUri="MainWindow.xaml">
+             StartupUri="LoginWindow.xaml">
     <Application.Resources>
+
         <!--Sets the default colors I will be using for this project-->
 
         <SolidColorBrush x:Key="textColor" Color="#0EFFAF"/>
-        <SolidColorBrush x:Key="backgroundColor" Color="#202223"/>
+        <SolidColorBrush x:Key="backgroundColor" Color="#101121"/>
 
         <!--Sets the default button style so that whenever I want to add a new button, I don't have to re-write the same code-->
         <Style TargetType="Button" x:Key="buttonStyle">
@@ -19,24 +20,18 @@
             <Setter Property="BorderBrush" Value="#0EFFAF"/>
             <Setter Property="Margin" Value="100,35,100,35"/>
             
-
+            <!--Template created so that it sets the default look of the button by default, when it is hovered on and pressed-->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate  TargetType="{x:Type Button}">
-                        <Border x:Name="border" BorderBrush="#0EFFAF" BorderThickness="{TemplateBinding BorderThickness}" Background="#202223" SnapsToDevicePixels="True">
+                        <Border x:Name="border" BorderBrush="#0EFFAF" BorderThickness="{TemplateBinding BorderThickness}" Background="#202343" SnapsToDevicePixels="True">
                             <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" TargetName="border" Value="#e8e7e7"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="BorderBrush" Value="#e8e7e7"></Setter>
-                            </Trigger>
                             <Trigger Property="IsEnabled" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="#202223"/>
+                                <Setter Property="Background" TargetName="border" Value="#101121"/>
                                 <Setter Property="BorderBrush" Value="#00afdd"></Setter>
-                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Foreground" Value="#0EFFAF"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" TargetName="border" Value="#3b3e40"/>
@@ -48,10 +43,6 @@
                                 <Setter Property="Background" TargetName="border" Value="#090a0a"/>
                                 <Setter Property="Foreground" Value="White"/>
                             </Trigger>
-                            <Trigger Property="ToggleButton.IsChecked" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
-                            </Trigger>
-
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -77,8 +68,6 @@
             <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
-
         
-
     </Application.Resources>
 </Application>
