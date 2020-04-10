@@ -29,7 +29,7 @@
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#202223" Offset="0.0"/>
-                        <GradientStop Color="#202343" Offset="2"/>
+                        <GradientStop Color="#202343" Offset="10"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 
@@ -60,9 +60,10 @@
 
             <StackPanel Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
-                    <TextBox FontFamily="Helvetica"
+                    <TextBox FontFamily="Helvetica" 
+                         x:Name="UsernameField"
+                         CaretBrush="White"
                          FontWeight="Light"
-                         Text="Username"
                          FontSize="20"
                          HorizontalAlignment="Center"
                          Foreground="White"
@@ -90,9 +91,10 @@
 
 
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                    <PasswordBox FontFamily="Helvetica"
+                    <PasswordBox FontFamily="Helvetica" 
+                        CaretBrush="White"
+                         x:Name="PasswordField"                         
                          FontWeight="Light"
-                         Password="Password"
                          FontSize="20"
                          HorizontalAlignment="Center"
                          Foreground="White"

@@ -62,7 +62,7 @@ namespace NutbourneOIS
                  MessageBoxResult deleteConfirmation = MessageBox.Show("Are you sure that you want to delete this item?", "Delete item", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (deleteConfirmation == MessageBoxResult.Yes)
                 {
-                    using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+                    using (SQLiteConnection connection = new SQLiteConnection(App.itemDatabasePath))
                     {
                         connection.CreateTable<Item>();
                         connection.Delete(selectedItem);
@@ -76,7 +76,7 @@ namespace NutbourneOIS
         {
             List<Item> items;
 
-            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.databasePath))
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.itemDatabasePath))
             {
                 conn.CreateTable<Item>();
                 items = (conn.Table<Item>().ToList()).OrderBy(c => c.ItemNumber).ToList();
@@ -89,6 +89,10 @@ namespace NutbourneOIS
             }
         }
 
-        
+        private void UsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            UsersWindow usersWindow = new UsersWindow();
+            usersWindow.ShowDialog();
+        }
     }
 }

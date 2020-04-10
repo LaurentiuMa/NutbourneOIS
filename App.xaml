@@ -8,7 +8,7 @@
         <!--Sets the default colors I will be using for this project-->
 
         <SolidColorBrush x:Key="textColor" Color="#0EFFAF"/>
-        <SolidColorBrush x:Key="backgroundColor" Color="#101121"/>
+        <SolidColorBrush x:Key="backgroundColor" Color="#202343"/>
 
         <!--Sets the default button style so that whenever I want to add a new button, I don't have to re-write the same code-->
         <Style TargetType="Button" x:Key="buttonStyle">
@@ -29,7 +29,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsEnabled" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="#101121"/>
+                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
                                 <Setter Property="BorderBrush" Value="#00afdd"></Setter>
                                 <Setter Property="Foreground" Value="#0EFFAF"/>
                             </Trigger>
@@ -68,6 +68,6 @@
             <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="15"/>
         </Style>
-        
+
     </Application.Resources>
 </Application>

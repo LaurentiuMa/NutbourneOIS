@@ -1,22 +1,19 @@
 ﻿<Window 
     
         Background="#202223"
-            
+        ResizeMode="NoResize"
         
-    
-        x:Class="NutbourneOIS.MainWindow"
+
+   
+        x:Class="NutbourneOIS.UsersWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NutbourneOIS"
-        xmlns:uc="clr-namespace:NutbourneOIS.Controls"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        Title="MainWindow" Height="750" Width="1200">
-    
-    
-    
+        Title="UsersWindow" Height="750" Width="1200">
+   
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".5*"/>
@@ -32,7 +29,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label x:Name="logo"
-               Content="NOIS"
+               Content="Users"
                Grid.Column="0"
                Grid.Row="0"
                HorizontalAlignment="Center"
@@ -41,31 +38,25 @@
                Foreground="#0EFFAF"
                FontFamily="Calibri"
                FontWeight="Bold"/>
-        <Button x:Name="NewItemButton"
+        <Button x:Name="NewUserButton"
                 Style="{StaticResource buttonStyle}"
-                Click="NewItemButton_Click"
+                Click="NewUserButton_Click"
                 Content="New"
                 Grid.Column="0"
                 Grid.Row="2"
                 />
-        <Button x:Name="UpdateButton"
+        <Button x:Name="UpdateDetailsButton"
                 Style="{StaticResource buttonStyle}"
-                Click="UpdateButton_Click"
+                Click="UpdateDetailsButton_Click"
                 Content="Update "
                 Grid.Column="0"
                 Grid.Row="3"/>
-        <Button x:Name="CompleteButton"
+        <Button x:Name="SetInactive"
                 Style="{StaticResource buttonStyle}"
-                Click="CompleteButton_Click"
-                Content="Completed"
+                Click="SetInactive_Click"
+                Content="Set inactive"
                 Grid.Column="0"
                 Grid.Row="4"/>
-        <Button x:Name="UsersButton"
-                Style="{StaticResource buttonStyle}"
-                Click="UsersButton_Click"
-                Content="Users"
-                Grid.Column="0"
-                Grid.Row="5"/>
 
         <StackPanel Margin="10" 
                     Grid.Column="1" 
@@ -77,11 +68,11 @@
                       BorderBrush="#0EFFAF"
                       Margin="5"
                       Background="#202223">
-                <ListView.ItemTemplate>
+                <!--<ListView.ItemTemplate>
                     <DataTemplate>
-                        <uc:ItemControl Item="{Binding}"/>
+                        <uc:UserControls UserControl="{Binding}"/>
                     </DataTemplate>
-                </ListView.ItemTemplate>
+                </ListView.ItemTemplate>-->
             </ListView>
         </StackPanel>
 

@@ -57,7 +57,7 @@ namespace NutbourneOIS
             item.ItemDescription = itemDescriptionTextBox.Text;
             item.Engineer = engineerTextBox.Text;
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            using (SQLiteConnection connection = new SQLiteConnection(App.itemDatabasePath))
             {
                 connection.CreateTable<Item>();
                 connection.Update(item);

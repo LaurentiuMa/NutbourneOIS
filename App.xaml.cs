@@ -14,9 +14,12 @@ namespace NutbourneOIS
     /// </summary>
     public partial class App : Application
     {
-        public static string databaseName = "Items.db";
-        public static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string databasePath = System.IO.Path.Combine(folderPath, databaseName);
+        public static string itemDatabaseName = "Items.db";
+        public static string itemFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static string itemDatabasePath = System.IO.Path.Combine(itemFolderPath, itemDatabaseName);
 
+        public static string userDatabaseName = "Users.db";
+        public static string userDatabaseFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static string userDatabasePath = System.IO.Path.Combine(userDatabaseFolderPath, userDatabaseName);
     }
 }

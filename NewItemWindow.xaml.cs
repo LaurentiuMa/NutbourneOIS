@@ -39,7 +39,7 @@ namespace NutbourneOIS
             };
 
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            using (SQLiteConnection connection = new SQLiteConnection(App.itemDatabasePath))
             {
                 connection.CreateTable<Item>();
                 connection.Insert(item);

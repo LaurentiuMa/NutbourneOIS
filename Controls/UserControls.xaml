@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="NutbourneOIS.Controls.ItemControl"
+﻿<UserControl x:Class="NutbourneOIS.Controls.UserControls"
              
              Background="#00202223"
              Foreground="#0EFFAF"
@@ -11,8 +11,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutbourneOIS.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="1190">
-   
+             d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
         <StackPanel Width="730"
                    
@@ -36,4 +36,5 @@
                        FontSize="15"/>
         </StackPanel>
     </Grid>
+    
 </UserControl>
