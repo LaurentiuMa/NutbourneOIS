@@ -11,6 +11,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NutbourneOIS"
+        xmlns:uc="clr-namespace:NutbourneOIS.Controls"
         mc:Ignorable="d"
         Title="UsersWindow" Height="750" Width="1200">
    
@@ -51,28 +52,27 @@
                 Content="Update "
                 Grid.Column="0"
                 Grid.Row="3"/>
-        <Button x:Name="SetInactive"
+        <Button x:Name="ResetPassword"
                 Style="{StaticResource buttonStyle}"
-                Click="SetInactive_Click"
-                Content="Set inactive"
+                Click="ResetPassword_Click"
+                Content="Reset "
                 Grid.Column="0"
                 Grid.Row="4"/>
-
         <StackPanel Margin="10" 
                     Grid.Column="1" 
                     Grid.Row="0" 
                     Grid.RowSpan="6" 
                     Background="#202223">
-            <ListView x:Name="itemsListView"
+            <ListView x:Name="engineersListView"
                       Height="660"
                       BorderBrush="#0EFFAF"
                       Margin="5"
                       Background="#202223">
-                <!--<ListView.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <uc:UserControls UserControl="{Binding}"/>
+                        <uc:EngineerControl Engineer="{Binding}"/>
                     </DataTemplate>
-                </ListView.ItemTemplate>-->
+                </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
 

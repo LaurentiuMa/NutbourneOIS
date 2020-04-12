@@ -28,7 +28,9 @@ namespace NutbourneOIS
             InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+       
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             Item item = new Item()
             {
@@ -46,6 +48,18 @@ namespace NutbourneOIS
             }
 
             Close();
+        }
+
+        private void NumericOnly(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = IsTextNumeric(e.Text);
+        }
+
+
+        private static bool IsTextNumeric(string str)
+        {
+            System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("[^0-9]");
+            return reg.IsMatch(str);
         }
     }
 }

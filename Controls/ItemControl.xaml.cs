@@ -40,7 +40,7 @@ namespace NutbourneOIS.Controls
             if (control != null)
             {
                 control.idTextBlock.Text = ((e.NewValue as Item).ItemNumber).ToString();
-                control.ticketNumberTextBlock.Text = (e.NewValue as Item).TicketNumber;
+                control.ticketNumberTextBlock.Text = "Ticket #" + (e.NewValue as Item).TicketNumber;
                 control.itemTypeTextBlock.Text = (e.NewValue as Item).ItemType;
                 control.descriptionTextBlock.Text = (e.NewValue as Item).ItemDescription;
                 control.engineerTextBlock.Text = (e.NewValue as Item).Engineer;

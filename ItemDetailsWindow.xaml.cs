@@ -36,7 +36,7 @@ namespace NutbourneOIS
             engineerTextBox.Text = item.Engineer;
         }
 
-        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void NumericOnly(object sender, TextCompositionEventArgs e)
         {
             e.Handled = IsTextNumeric(e.Text);
 

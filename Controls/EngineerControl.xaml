@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="NutbourneOIS.Controls.UserControls"
+﻿<UserControl x:Class="NutbourneOIS.Controls.EngineerControl"
              
              Background="#00202223"
              Foreground="#0EFFAF"
@@ -11,30 +11,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutbourneOIS.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
+             d:DesignHeight="120" d:DesignWidth="1190">
     <Grid>
-        <StackPanel Width="730"
-                   
-                    >
-            <TextBlock x:Name="idTextBlock" 
-                       Text="######" 
+
+        <StackPanel Width="730">
+            <TextBlock x:Name="engineerName" 
+                       Text="Laurentiu Maties" 
                        FontSize="20" 
                        FontWeight="Bold"/>
-            <TextBlock x:Name="itemTypeTextBlock" 
-                       Text="Laptop" 
+            <TextBlock x:Name="engineerID" 
+                       Text="12345" 
+                       FontSize="20"/>
+            <TextBlock x:Name="accountType" 
+                       Text="Admin" 
                        FontSize="15" />
-            <TextBlock x:Name="descriptionTextBlock"
+            <TextBlock x:Name="email"
                        TextTrimming="CharacterEllipsis"
-                       Text="lorem ipsum dolor" 
+                       Text="laurentiu.maties@nutbourne.com" 
                        FontSize="15"/>
-            <TextBlock x:Name="ticketNumberTextBlock" 
-                       Text="#######" 
-                       FontSize="15"/>
-            <TextBlock x:Name="engineerTextBlock" 
-                       Text="Laurentiu Maties" 
+            <TextBlock x:Name="accountStatus"
+                       Text="Active" 
                        FontSize="15"/>
         </StackPanel>
+
     </Grid>
-    
 </UserControl>
