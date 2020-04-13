@@ -75,7 +75,17 @@
             <ComboBoxItem>Admin</ComboBoxItem>
         </ComboBox>
 
-            <Button Content="Create"
+        <Label x:Name="passwordLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Password"
+               Grid.Column="0"
+               Grid.Row="4"/>
+        <TextBox x:Name="passwordTextBox"
+                 Style="{StaticResource textBoxStyle}"
+                 Grid.Row="4"
+                 Grid.Column="2"/>
+
+        <Button Content="Create"
                 x:Name="createUserButton"
                 Style="{StaticResource buttonStyle}"
                 Click="CreateUserButton_Click"

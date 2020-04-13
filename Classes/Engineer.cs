@@ -17,6 +17,15 @@ namespace NutbourneOIS.Classes
         public string Password { get; set; }
         public string AccountType { get; set; }
         public string AccountStatus { get; set; }
+        public string Salt { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"{Email} + fdgwhsdfhsrthsfgjhdfjdj";
+        }
 
     }
+
+    
 }

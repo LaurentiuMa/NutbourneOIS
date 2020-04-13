@@ -76,7 +76,7 @@ namespace NutbourneOIS
         {
             List<Item> items;
 
-            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.itemDatabasePath))
+            using (SQLiteConnection conn = new SQLiteConnection(App.itemDatabasePath))
             {
                 conn.CreateTable<Item>();
                 items = (conn.Table<Item>().ToList()).OrderBy(c => c.ItemNumber).ToList();
