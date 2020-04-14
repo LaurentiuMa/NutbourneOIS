@@ -42,43 +42,31 @@ namespace NutbourneOIS
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
 
-
-            string username = UsernameField.Text;
-            string password = PasswordField.Password.ToString();
-            string hashedPasswordString = "";
-            string saltString = "";
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.engineerDatabasePath))
-            {
-                engineers = conn.Table<Engineer>().ToList();
-
-                var hashedpasswordlist = from c in engineers
-                                     where c.Email == username
-                                     select c.Password;
-
-                foreach (var item in hashedpasswordlist)
+            
+                //establishes connection
+                using (SQLiteConnection conn = new SQLiteConnection(App.engineerDatabasePath))
                 {
-                    hashedPasswordString = item;
+
+                    var saltedPassword = (from c in conn.Table<Engineer>()
+                                          where c.Email == UsernameField.Text
+                                          select new { c.Password, c.Salt }).SingleOrDefault();
+
+                    if (saltedPassword != null)
+                    {
+                        if (GenerateSHA256Hash(PasswordField.Password.ToString(), saltedPassword.Salt) == saltedPassword.Password)
+                        {
+                            MessageBox.Show("Correct credentials, click ok to continue", "Access Granted", MessageBoxButton.OK);
+                            MainWindow MainWindow = new MainWindow();
+                            MainWindow.Show();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect credentials", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
                 }
-
-                var saltlist = from c in engineers
-                               where c.Email == username
-                               select c.Salt;
-                foreach (var item in saltlist)
-                {
-                    saltString = item;
-                }
-
-                if ( GenerateSHA256Hash(password, saltString) == hashedPasswordString) 
-                {
-                    MessageBoxResult deleteConfirmation = MessageBox.Show("IT WORKS!", "Delete item", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                }
-
-            }
-
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
-            this.Close();
         }
 
 
