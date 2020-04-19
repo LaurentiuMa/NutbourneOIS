@@ -14,12 +14,8 @@ namespace NOIS.Classes
         public string ItemType { get; set; }
         public string ItemDescription { get; set; }
         public string Engineer { get; set; }
-        public string TicketNumber { get; set; }
+        public int TicketNumber { get; set; }
 
-        public override string ToString()
-        {
-            return $"{ItemNumber} - {ItemType} - {ItemDescription} - {Engineer} - {TicketNumber}";
-        }
 
     }
 

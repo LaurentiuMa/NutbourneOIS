@@ -67,7 +67,8 @@
                       Height="660"
                       BorderBrush="#0EFFAF"
                       Margin="5"
-                      Background="#202223">
+                      Background="#202223"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <uc:EngineerControl Engineer="{Binding}"/>

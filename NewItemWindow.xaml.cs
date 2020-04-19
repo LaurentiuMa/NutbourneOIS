@@ -34,7 +34,7 @@ namespace NutbourneOIS
         {
             Item item = new Item()
             {
-                TicketNumber = ticketNumberTextBox.Text,
+                TicketNumber = int.Parse(ticketNumberTextBox.Text),
                 Engineer = engineerTextBox.Text,
                 ItemDescription = itemDescriptionTextBox.Text,
                 ItemType = itemTypeTextBox.Text

@@ -58,7 +58,6 @@
                Grid.Row="2"/>
         <TextBox x:Name="emailTextBox"
                  Style="{StaticResource textBoxStyle}"
-                 VerticalScrollBarVisibility="Visible"
                  Grid.Row="2"
                  Grid.Column="2"/>
 

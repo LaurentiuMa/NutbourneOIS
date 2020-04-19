@@ -20,11 +20,6 @@ namespace NutbourneOIS.Classes
         public string Salt { get; set; }
 
 
-        public override string ToString()
-        {
-            return $"{Email} + fdgwhsdfhsrthsfgjhdfjdj";
-        }
-
     }
 
     

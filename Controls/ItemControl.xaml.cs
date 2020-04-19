@@ -31,7 +31,7 @@ namespace NutbourneOIS.Controls
 
         // Using a DependencyProperty as the backing store for Item.  This enables animation, styling, binding, etc... Currently this is only being used for binding
         public static readonly DependencyProperty ItemProperty =
-            DependencyProperty.Register("Item", typeof(Item), typeof(ItemControl), new PropertyMetadata(new Item() { ItemNumber = 0, TicketNumber = "######", ItemType = "Laptop", ItemDescription = "lorem ipsum dolor", Engineer = "Laurentiu Maties" }, SetText));
+            DependencyProperty.Register("Item", typeof(Item), typeof(ItemControl), new PropertyMetadata(new Item() { ItemNumber = 0, TicketNumber = 0, ItemType = "Laptop", ItemDescription = "lorem ipsum dolor", Engineer = "Laurentiu Maties" }, SetText));
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

@@ -13,11 +13,12 @@
         xmlns:uc="clr-namespace:NutbourneOIS.Controls"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="750" Width="1200">
+        Title="Nutbourne Organised Inventory System" Height="750" Width="1200">
     
     
     
-    <Grid Margin="10">
+    <Grid Margin="10"
+         >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".5*"/>
             <ColumnDefinition Width="*"/>
@@ -71,12 +72,14 @@
                     Grid.Column="1" 
                     Grid.Row="0" 
                     Grid.RowSpan="6" 
-                    Background="#202223">
+                    Background="#202223"
+                    >
             <ListView x:Name="itemsListView"
                       Height="660"
                       BorderBrush="#0EFFAF"
                       Margin="5"
-                      Background="#202223">
+                      Background="#202223"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <uc:ItemControl Item="{Binding}"/>

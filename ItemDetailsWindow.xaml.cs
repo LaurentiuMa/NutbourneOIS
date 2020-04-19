@@ -30,7 +30,7 @@ namespace NutbourneOIS
 
             this.item = item;
 
-            ticketNumberTextBox.Text = item.TicketNumber;
+            ticketNumberTextBox.Text = item.TicketNumber.ToString();
             itemTypeTextBox.Text = item.ItemType;
             itemDescriptionTextBox.Text = item.ItemDescription;
             engineerTextBox.Text = item.Engineer;
@@ -52,7 +52,7 @@ namespace NutbourneOIS
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            item.TicketNumber = ticketNumberTextBox.Text;
+            item.TicketNumber = int.Parse(ticketNumberTextBox.Text);
             item.ItemType = itemTypeTextBox.Text;
             item.ItemDescription = itemDescriptionTextBox.Text;
             item.Engineer = engineerTextBox.Text;
