@@ -79,7 +79,7 @@ namespace NutbourneOIS
             using (SQLiteConnection conn = new SQLiteConnection(App.itemDatabasePath))
             {
                 conn.CreateTable<Item>();
-                items = (conn.Table<Item>().ToList()).OrderBy(c => c.ItemNumber).ToList();
+                items = conn.Table<Item>().ToList().OrderBy(c => c.ItemNumber).ToList();
 
             }
 

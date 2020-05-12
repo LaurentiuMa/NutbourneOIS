@@ -48,7 +48,13 @@ namespace NutbourneOIS
 
         private void ResetPassword_Click(object sender, RoutedEventArgs e)
         {
-            //TODO
+            Engineer selectedEngineer = (Engineer)engineersListView.SelectedItem;
+
+            if (selectedEngineer != null)
+            {
+                ResetPasswordWindow resetPasswordWindow = new ResetPasswordWindow(selectedEngineer);
+                resetPasswordWindow.ShowDialog();
+            }
         }
 
         public void ReadDatabase() 

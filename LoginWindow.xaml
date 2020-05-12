@@ -50,7 +50,8 @@
             
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Images/logo.png" Width="100"/>
-                <TextBlock Text="Organised Inventory System"
+                <TextBlock Name="titleTextBlock"
+                           Text="Organised Inventory System"
                            FontWeight="Light"
                            FontSize="22"
                            FontFamily="Helvetica"
