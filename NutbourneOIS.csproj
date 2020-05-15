@@ -95,6 +95,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Engineer.cs" />
+    <Compile Include="Classes\RegexUtilities.cs" />
     <Compile Include="Controls\EngineerControl.xaml.cs">
       <DependentUpon>EngineerControl.xaml</DependentUpon>
     </Compile>
@@ -195,9 +196,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

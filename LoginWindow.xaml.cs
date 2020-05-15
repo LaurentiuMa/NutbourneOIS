@@ -49,14 +49,14 @@ namespace NutbourneOIS
 
                     var saltedPassword = (from c in conn.Table<Engineer>()
                                           where c.Email == UsernameField.Text
-                                          select new { c.Password, c.Salt }).SingleOrDefault();
+                                          select new { c.Password, c.Salt, c.AccountType }).SingleOrDefault();
 
                     if (saltedPassword != null)
                     {
                         if (GenerateSHA256Hash(PasswordField.Password.ToString(), saltedPassword.Salt) == saltedPassword.Password)
                         {
                             MessageBox.Show("Correct credentials, click ok to continue", "Access Granted", MessageBoxButton.OK);
-                            MainWindow MainWindow = new MainWindow();
+                            MainWindow MainWindow = new MainWindow(saltedPassword.AccountType);
                             MainWindow.Show();
                             this.Close();
                         }

@@ -63,14 +63,22 @@
         <Style TargetType="{x:Type TextBox}" x:Key="textBoxStyle">
             <Setter Property="Background" Value="#00AAAAAA"/>
             <Setter Property="Foreground" Value="{StaticResource textColor}"/>
-            <Setter Property="Margin" Value="5,30,5,30"/>
+            <Setter Property="Margin" Value="5,35,5,35"/>
             <Setter Property="BorderBrush" Value="{StaticResource textColor}"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="FontFamily" Value="Calibri"/>
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
 
-
+        <Style TargetType="{x:Type PasswordBox}" x:Key="passwordBoxStyle">
+            <Setter Property="Background" Value="#00AAAAAA"/>
+            <Setter Property="Foreground" Value="{StaticResource textColor}"/>
+            <Setter Property="Margin" Value="5,35,5,35"/>
+            <Setter Property="BorderBrush" Value="{StaticResource textColor}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
 
 
 

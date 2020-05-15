@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,31 +31,37 @@ namespace NutbourneOIS
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
-
-            string salt = CreateSalt(10);
-            string hashedpassword = GenerateSHA256Hash(passwordTextBox.Text, salt);
-
-
-            Engineer engineer = new Engineer()
+            if (passwordTextBox.Password == passwordConfirmationBox.Password && RegexUtilities.IsValidEmail(emailTextBox.Text))
             {
-                FirstName = firstNameTextBox.Text,
-                Surname = surnameTextBox.Text,
-                Email = emailTextBox.Text,
-                AccountType = accountTypeComboBox.Text,
-                AccountStatus = "Active",
-                Password = hashedpassword,
-                Salt = salt
-                
+                string salt = CreateSalt(10);
+                string hashedpassword = GenerateSHA256Hash(passwordTextBox.Password.ToString(), salt);
 
-            };
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.engineerDatabasePath))
-            {
-                connection.CreateTable<Engineer>();
-                connection.Insert(engineer);
+                Engineer engineer = new Engineer()
+                {
+                    FirstName = firstNameTextBox.Text,
+                    Surname = surnameTextBox.Text,
+                    Email = emailTextBox.Text,
+                    AccountType = accountTypeComboBox.Text,
+                    AccountStatus = "Active",
+                    Password = hashedpassword,
+                    Salt = salt
+
+
+                };
+
+                using (SQLiteConnection connection = new SQLiteConnection(App.engineerDatabasePath))
+                {
+                    connection.CreateTable<Engineer>();
+                    connection.Insert(engineer);
+                }
+
+                Close();
             }
-
-            Close();
+            else 
+            {
+                MessageBox.Show("Passwords do not match or the email is in the incorrect format", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
         }
 

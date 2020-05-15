@@ -83,8 +83,8 @@
                Content="Password"
                Grid.Column="0"
                Grid.Row="4"/>
-        <TextBox x:Name="passwordTextBox"
-                 Style="{StaticResource textBoxStyle}"
+        <PasswordBox x:Name="passwordTextBox"
+                 Style="{StaticResource passwordBoxStyle}"
                  Margin="5,25,5,25"
                  Grid.Row="4"
                  Grid.Column="2"/>
@@ -94,8 +94,8 @@
                Content="Confirm Password"
                Grid.Column="0"
                Grid.Row="5"/>
-        <TextBox x:Name="passwordConfirmationBox"
-                 Style="{StaticResource textBoxStyle}"
+        <PasswordBox x:Name="passwordConfirmationBox"
+                 Style="{StaticResource passwordBoxStyle}"
                  Margin="5,25,5,25"
                  Grid.Row="5"
                  Grid.Column="2"/>

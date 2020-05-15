@@ -23,9 +23,14 @@ namespace NutbourneOIS
     public partial class MainWindow : Window
     {
 
-        public MainWindow()
+        public MainWindow(string accountType)
         {
             InitializeComponent();
+
+            if (accountType == "User")
+            {
+                UsersButton.Visibility = Visibility.Hidden;
+            }
 
             ReadDatabase();
         }
