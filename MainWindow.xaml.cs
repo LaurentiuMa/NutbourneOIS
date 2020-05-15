@@ -45,7 +45,7 @@ namespace NutbourneOIS
         }
 
 
-
+        // Update button
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             Item selectedItem = (Item)itemsListView.SelectedItem;
