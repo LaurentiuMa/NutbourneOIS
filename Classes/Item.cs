@@ -13,10 +13,10 @@ namespace NOIS.Classes
         public int ItemNumber { get; set; }
         public string ItemType { get; set; }
         public string ItemDescription { get; set; }
-        public string Engineer { get; set; }
+        public int EngineerID { get; set; }
+        public string ItemStatus { get; set; }
+        public DateTime LastUpdated { get; set; }
         public int TicketNumber { get; set; }
-
-
     }
 
 

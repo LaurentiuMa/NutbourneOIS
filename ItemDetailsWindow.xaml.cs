@@ -33,7 +33,7 @@ namespace NutbourneOIS
             ticketNumberTextBox.Text = item.TicketNumber.ToString();
             itemTypeTextBox.Text = item.ItemType;
             itemDescriptionTextBox.Text = item.ItemDescription;
-            engineerTextBox.Text = item.Engineer;
+            engineerTextBox.Text = item.EngineerID.ToString();
         }
 
         private void NumericOnly(object sender, TextCompositionEventArgs e)
@@ -55,9 +55,9 @@ namespace NutbourneOIS
             item.TicketNumber = int.Parse(ticketNumberTextBox.Text);
             item.ItemType = itemTypeTextBox.Text;
             item.ItemDescription = itemDescriptionTextBox.Text;
-            item.Engineer = engineerTextBox.Text;
+            item.EngineerID = int.Parse(engineerTextBox.Text);
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.itemDatabasePath))
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
             {
                 connection.CreateTable<Item>();
                 connection.Update(item);

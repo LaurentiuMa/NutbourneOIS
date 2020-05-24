@@ -32,7 +32,7 @@ namespace NutbourneOIS.Controls
 
         // Using a DependencyProperty as the backing store for Engineer.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty EngineerProperty =
-            DependencyProperty.Register("Engineer", typeof(Engineer), typeof(EngineerControl), new PropertyMetadata(new Engineer (){ ID = 0, Email= "Place@holder.com", FirstName="Andy", Surname="White", Password="sagf546", AccountStatus="Active" }, SetText));
+            DependencyProperty.Register("Engineer", typeof(Engineer), typeof(EngineerControl), new PropertyMetadata(new Engineer (){ EngineerID = 0, Email= "Place@holder.com", FirstName="Andy", Surname="White", Password="sagf546", AccountStatus="Active" }, SetText));
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -40,7 +40,7 @@ namespace NutbourneOIS.Controls
 
             if (control != null)
             {
-                control.engineerID.Text = (e.NewValue as Engineer).ID.ToString();
+                control.engineerID.Text = (e.NewValue as Engineer).EngineerID.ToString();
                 control.engineerName.Text = (e.NewValue as Engineer).FirstName + " " + (e.NewValue as Engineer).Surname;
                 control.email.Text = (e.NewValue as Engineer).Email;
                 control.accountType.Text = (e.NewValue as Engineer).AccountType;

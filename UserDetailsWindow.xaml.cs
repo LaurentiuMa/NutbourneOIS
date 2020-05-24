@@ -46,7 +46,7 @@ namespace NutbourneOIS
             engineer.AccountType = accountTypeComboBox.Text;
             engineer.AccountStatus = accountStatusComboBox.Text;
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.engineerDatabasePath))
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
             {
                 connection.CreateTable<Engineer>();
                 connection.Update(engineer);

@@ -35,13 +35,15 @@ namespace NutbourneOIS
             Item item = new Item()
             {
                 TicketNumber = int.Parse(ticketNumberTextBox.Text),
-                Engineer = engineerTextBox.Text,
+                EngineerID = int.Parse(engineerTextBox.Text),
                 ItemDescription = itemDescriptionTextBox.Text,
-                ItemType = itemTypeTextBox.Text
+                ItemType = itemTypeTextBox.Text,
+                ItemStatus = "Active",
+                LastUpdated = DateTime.Now
             };
 
 
-            using (SQLiteConnection connection = new SQLiteConnection(App.itemDatabasePath))
+            using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
             {
                 connection.CreateTable<Item>();
                 connection.Insert(item);

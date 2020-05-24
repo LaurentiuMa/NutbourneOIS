@@ -61,7 +61,7 @@ namespace NutbourneOIS
         {
             List<Engineer> engineers;
 
-            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.engineerDatabasePath))
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DatabasePath))
             {
                 conn.CreateTable<Engineer>();
                 engineers = (conn.Table<Engineer>().ToList().ToList());

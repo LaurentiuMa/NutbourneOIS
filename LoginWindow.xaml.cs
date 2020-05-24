@@ -44,7 +44,7 @@ namespace NutbourneOIS
 
             
                 //establishes connection
-                using (SQLiteConnection conn = new SQLiteConnection(App.engineerDatabasePath))
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
                 {
 
                     var saltedPassword = (from c in conn.Table<Engineer>()
@@ -64,7 +64,9 @@ namespace NutbourneOIS
                     else
                     {
                         MessageBox.Show("Incorrect credentials", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+
+                    
+                }
 
                 }
         }

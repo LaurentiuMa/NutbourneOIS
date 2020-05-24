@@ -10,7 +10,7 @@ namespace NutbourneOIS.Classes
     public class Engineer
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int EngineerID { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
