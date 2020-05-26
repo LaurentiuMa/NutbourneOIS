@@ -44,6 +44,7 @@ namespace NutbourneOIS.Controls
                 control.itemTypeTextBlock.Text = (e.NewValue as Item).ItemType;
                 control.descriptionTextBlock.Text = (e.NewValue as Item).ItemDescription;
                 control.engineerTextBlock.Text = ((e.NewValue as Item).EngineerID).ToString();
+                control.dateTextBlock.Text = "Last Update: " + ((e.NewValue as Item).LastUpdated).ToString();
             }
         }
 

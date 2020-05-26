@@ -34,6 +34,7 @@ namespace NutbourneOIS
             itemTypeTextBox.Text = item.ItemType;
             itemDescriptionTextBox.Text = item.ItemDescription;
             engineerTextBox.Text = item.EngineerID.ToString();
+
         }
 
         private void NumericOnly(object sender, TextCompositionEventArgs e)
@@ -56,6 +57,7 @@ namespace NutbourneOIS
             item.ItemType = itemTypeTextBox.Text;
             item.ItemDescription = itemDescriptionTextBox.Text;
             item.EngineerID = int.Parse(engineerTextBox.Text);
+            item.LastUpdated = DateTime.Now;
 
             using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
             {

@@ -20,14 +20,32 @@ namespace NutbourneOIS
     /// </summary>
     public partial class ResetPasswordWindow : Window
     {
+
+        Engineer engineer;
+
         public ResetPasswordWindow(Engineer engineer)
         {
             InitializeComponent();
+            this.engineer = engineer;
         }
 
         private void resetPasswordButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (RegexUtilities.ValidatePassword(newPasswordConfirmationTextBox.Password))
+                {
 
+                }
+                else 
+                {
+                    MessageBox.Show("The password must be between 8-30 characters, must contain at least ONE number and at least ONE symbol (%$^*)", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("No password entered", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

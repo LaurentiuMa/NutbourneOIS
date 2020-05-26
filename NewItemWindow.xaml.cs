@@ -42,14 +42,21 @@ namespace NutbourneOIS
                 LastUpdated = DateTime.Now
             };
 
-
-            using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
+            try
             {
-                connection.CreateTable<Item>();
-                connection.Insert(item);
+                using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
+                {
+                    connection.CreateTable<Item>();
+                    connection.Insert(item);
+                    Close();
+                }
+            }
+            catch (SQLiteException) 
+            {
+                MessageBox.Show("No Engineer exists with this ID", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            Close();
+    
         }
 
         private void NumericOnly(object sender, TextCompositionEventArgs e)

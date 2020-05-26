@@ -11,12 +11,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NutbourneOIS.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="1190">
+             d:DesignHeight="135" d:DesignWidth="1190">
    
     <Grid>
-        <StackPanel Width="730"
-                   
-                    >
+        <StackPanel Width="730" >
             <TextBlock x:Name="idTextBlock" 
                        Text="######" 
                        FontSize="20" 
@@ -33,6 +31,9 @@
                        FontSize="15"/>
             <TextBlock x:Name="engineerTextBlock" 
                        Text="Laurentiu Maties" 
+                       FontSize="15"/>
+            <TextBlock x:Name="dateTextBlock" 
+                       Text="27/2/2020" 
                        FontSize="15"/>
         </StackPanel>
     </Grid>
