@@ -55,5 +55,10 @@ namespace NutbourneOIS
             Close();
 
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

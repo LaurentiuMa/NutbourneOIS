@@ -107,7 +107,13 @@
                 Grid.Column="0"
                 Grid.Row="6"
                 Margin="100,25,100,25"/>
-
+        <Button Content="Cancel"
+                x:Name="cancelButton"
+                Style="{StaticResource buttonStyle}"
+                Margin="500,25,100,25"
+                Click="CancelButton_Click"
+                Grid.Column="1"
+                Grid.Row="6"/>
 
 
     </Grid>

@@ -98,6 +98,13 @@
                 Click="UpdateButton_Click"
                 Grid.Column="0"
                 Grid.Row="5"/>
+        <Button Content="Cancel"
+                x:Name="cancelButton"
+                Style="{StaticResource buttonStyle}"
+                Margin="500,35,100,35"
+                Click="CancelButton_Click"
+                Grid.Column="1"
+                Grid.Row="5"/>
     </Grid>
 
 

@@ -23,9 +23,15 @@ namespace NutbourneOIS
     public partial class MainWindow : Window
     {
 
+        DateTime dateTimeOfInitialisation;
+        List<int> listOfOutdatedItems;
+        string combinedStringOfOutdatedItems;
         public MainWindow(string accountType)
         {
             InitializeComponent();
+
+            dateTimeOfInitialisation = DateTime.Now;
+            listOfOutdatedItems = new List<int>();
 
             if (accountType == "User")
             {
@@ -33,6 +39,15 @@ namespace NutbourneOIS
             }
 
             ReadDatabase();
+
+            int listSize = listOfOutdatedItems.Count;
+            combinedStringOfOutdatedItems = string.Join(", ", listOfOutdatedItems);
+
+            if (listSize != 0) 
+            {
+                MessageBox.Show(combinedStringOfOutdatedItems, "OutdatedItems", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
 
         private void NewItemButton_Click(object sender, RoutedEventArgs e)
@@ -80,12 +95,21 @@ namespace NutbourneOIS
         public void ReadDatabase()
         {
             List<Item> items;
+            DateTime dateTimeOfItem;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
             {
                 conn.CreateTable<Item>();
                 items = conn.Table<Item>().ToList().OrderBy(c => c.ItemNumber).ToList();
 
+                foreach (Item item in items)
+                {
+                    dateTimeOfItem = item.LastUpdated.AddDays(1);
+                    if (DateTime.Compare(dateTimeOfItem, dateTimeOfInitialisation) <= 0)
+                    {
+                        listOfOutdatedItems.Add(item.ItemNumber);
+                    }
+                }
             }
 
             if(items != null)
