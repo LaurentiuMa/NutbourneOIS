@@ -95,7 +95,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Engineer.cs" />
-    <Compile Include="Classes\RegexUtilities.cs" />
+    <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Controls\EngineerControl.xaml.cs">
       <DependentUpon>EngineerControl.xaml</DependentUpon>
     </Compile>

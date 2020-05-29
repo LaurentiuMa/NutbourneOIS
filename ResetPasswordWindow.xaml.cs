@@ -33,7 +33,7 @@ namespace NutbourneOIS
         {
             try
             {
-                if (RegexUtilities.ValidatePassword(newPasswordConfirmationTextBox.Password))
+                if (Utilities.ValidatePassword(newPasswordConfirmationTextBox.Password))
                 {
 
                 }

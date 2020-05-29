@@ -31,11 +31,11 @@ namespace NutbourneOIS
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (passwordTextBox.Password == passwordConfirmationBox.Password && RegexUtilities.IsValidEmail(emailTextBox.Text))
+            if (passwordTextBox.Password == passwordConfirmationBox.Password && Utilities.IsValidEmail(emailTextBox.Text))
             {
-                string salt = CreateSalt(10);
-                string hashedpassword = GenerateSHA256Hash(passwordTextBox.Password.ToString(), salt);
-
+                Tuple<string, string> passwordSaltPair = Utilities.GenerateSHA256Hash(passwordTextBox.Password, 10);
+                string hashedpassword = passwordSaltPair.Item1;
+                string salt = passwordSaltPair.Item2;
 
                 Engineer engineer = new Engineer()
                 {
@@ -64,47 +64,6 @@ namespace NutbourneOIS
             }
 
         }
-
-        public string CreateSalt(int size)
-        {
-            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-            var buff = new byte[size];
-            rng.GetBytes(buff);
-            return Convert.ToBase64String(buff);
-        }
-
-        public string GenerateSHA256Hash(string input, string salt)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sha256hashtring = new System.Security.Cryptography.SHA256Managed();
-            byte[] hash = sha256hashtring.ComputeHash(bytes);
-
-            return ByteArrayToHexString(hash);
-        }
-
-        public static string ByteArrayToHexString(byte[] ba)
-        {
-            StringBuilder hex = new StringBuilder(ba.Length * 2);
-
-            foreach (byte b in ba)
-            {
-                hex.AppendFormat("{0:x2}", b);
-            }
-
-            return hex.ToString();
-        }
-
-        //public static byte[] HexStringToByteArray(string hex)
-        //{
-        //    int NumberChars = hex.Length;
-        //    byte[] bytes = new byte[NumberChars / 2];
-        //    for (int i = 0; i < NumberChars; i+= 2)
-        //    {
-        //        bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
-        //    }
-
-        //    return bytes;
-        //}
 
 
     }

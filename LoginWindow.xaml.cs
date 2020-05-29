@@ -41,19 +41,19 @@ namespace NutbourneOIS
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
-            
-                //establishes connection
+                //Establishes connection with the database.
                 using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
                 {
-
+                    //Queries the Database for the password hash, salt and account type associated with the email entered by the user.
                     var saltedPassword = (from c in conn.Table<Engineer>()
                                           where c.Email == UsernameField.Text
                                           select new { c.Password, c.Salt, c.AccountType }).SingleOrDefault();
 
+                    //Ensures that the field entered is not empty to avoid unnecessary computation or random errors
                     if (saltedPassword != null)
                     {
-                        if (GenerateSHA256Hash(PasswordField.Password.ToString(), saltedPassword.Salt) == saltedPassword.Password)
+                        //Uses the public class Utilities.cs to call the validate method that 
+                        if (Utilities.ValidateSHA256Hash(PasswordField.Password.ToString(), saltedPassword.Salt) == saltedPassword.Password)
                         {
                             MessageBox.Show("Correct credentials, click ok to continue", "Access Granted", MessageBoxButton.OK);
                             MainWindow MainWindow = new MainWindow(saltedPassword.AccountType);
@@ -66,38 +66,13 @@ namespace NutbourneOIS
                         MessageBox.Show("Incorrect credentials", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     
-                }
+                    }
 
                 }
         }
-
-
         private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
-
-        public string GenerateSHA256Hash(string input, string salt)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sha256hashtring = new System.Security.Cryptography.SHA256Managed();
-            byte[] hash = sha256hashtring.ComputeHash(bytes);
-
-            return ByteArrayToHexString(hash);
-        }
-
-        public static string ByteArrayToHexString(byte[] ba)
-        {
-            StringBuilder hex = new StringBuilder(ba.Length * 2);
-
-            foreach (byte b in ba)
-            {
-                hex.AppendFormat("{0:x2}", b);
-            }
-
-            return hex.ToString();
-        }
-
     }
 }
