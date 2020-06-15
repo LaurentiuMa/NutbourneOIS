@@ -11,7 +11,10 @@
         <SolidColorBrush x:Key="textColor" Color="#0EFFAF"/>
         <SolidColorBrush x:Key="backgroundColor" Color="#202343"/>
 
-        <!--Sets the default button style so that whenever I want to add a new button, I don't have to re-write the same code-->
+        <!--
+        Sets the default button style so that whenever I want to add a new button, I don't have to re-write the same code.
+        KEEP IN MIND that  changing these values will make an impact on the majority of buttons
+        -->
         <Style TargetType="{x:Type Button}" x:Key="buttonStyle">
             <Setter Property="Foreground" Value="{StaticResource textColor}"/>
             <Setter Property="Background" Value="{StaticResource backgroundColor}"/>
@@ -51,6 +54,7 @@
 
         </Style>
 
+        <!--Default label style-->
         <Style TargetType="{x:Type Label}" x:Key="labelStyle">
             <Setter Property="Foreground" Value="{StaticResource textColor}"/>
             <Setter Property="Background" Value="#00AAAAAA"/>
@@ -59,7 +63,8 @@
             <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="30"/>
         </Style>
-
+        
+        <!--Default textBox style-->
         <Style TargetType="{x:Type TextBox}" x:Key="textBoxStyle">
             <Setter Property="Background" Value="#00AAAAAA"/>
             <Setter Property="Foreground" Value="{StaticResource textColor}"/>
@@ -70,6 +75,7 @@
             <Setter Property="FontSize" Value="30"/>
         </Style>
 
+        <!--Default passwordbox style-->
         <Style TargetType="{x:Type PasswordBox}" x:Key="passwordBoxStyle">
             <Setter Property="Background" Value="#00AAAAAA"/>
             <Setter Property="Foreground" Value="{StaticResource textColor}"/>

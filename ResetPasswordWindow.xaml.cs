@@ -52,12 +52,18 @@ namespace NutbourneOIS
                 }
                 else 
                 {
-                    MessageBox.Show("The password must be between 8-30 characters, must contain at least ONE number and at least ONE symbol (%$^*)", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("The password must be between 9-30 characters, must contain at least ONE number and at least ONE symbol (%$^*)", 
+                                    "Error", 
+                                    MessageBoxButton.OK, 
+                                    MessageBoxImage.Information);
                 }
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show("No password entered", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No password entered", 
+                                "Error", 
+                                MessageBoxButton.OK, 
+                                MessageBoxImage.Information);
             }
         }
     }

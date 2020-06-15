@@ -22,6 +22,10 @@
             <TextBlock x:Name="itemTypeTextBlock" 
                        Text="Laptop" 
                        FontSize="15" />
+            <TextBlock x:Name="locationTextBlock"
+                       TextTrimming="CharacterEllipsis"
+                       Text="Location" 
+                       FontSize="15"/>
             <TextBlock x:Name="descriptionTextBlock"
                        TextTrimming="CharacterEllipsis"
                        Text="lorem ipsum dolor" 

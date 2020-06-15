@@ -42,6 +42,13 @@
                Foreground="#0EFFAF"
                FontFamily="Calibri"
                FontWeight="Bold"/>
+        <Button x:Name="ItemActivityButton"
+                Style="{StaticResource buttonStyle}"
+                Click="ItemActivityButton_Click"
+                Content="Inactive items"
+                Grid.Column="0"
+                Grid.Row="1"
+                />
         <Button x:Name="NewItemButton"
                 Style="{StaticResource buttonStyle}"
                 Click="NewItemButton_Click"

@@ -17,6 +17,7 @@ namespace NOIS.Classes
         public string ItemStatus { get; set; }
         public DateTime LastUpdated { get; set; }
         public int TicketNumber { get; set; }
+        public string Location { get; set; }
     }
 
 

@@ -21,9 +21,8 @@ namespace NutbourneOIS
     /// </summary>
     public partial class ItemDetailsWindow : Window
     {
-
         Item item;
-
+        List<TextBox> textBoxes = new List<TextBox>();
         public ItemDetailsWindow(Item item)
         {
             InitializeComponent();
@@ -34,6 +33,13 @@ namespace NutbourneOIS
             itemTypeTextBox.Text = item.ItemType;
             itemDescriptionTextBox.Text = item.ItemDescription;
             engineerTextBox.Text = item.EngineerID.ToString();
+            locationTextBox.Text = item.Location;
+            itemStatusComboBox.Text = item.ItemStatus.ToString();
+
+            textBoxes.Add(ticketNumberTextBox);
+            textBoxes.Add(itemTypeTextBox);
+            textBoxes.Add(itemDescriptionTextBox);
+            textBoxes.Add(engineerTextBox);
 
         }
 
@@ -53,19 +59,37 @@ namespace NutbourneOIS
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            item.TicketNumber = int.Parse(ticketNumberTextBox.Text);
-            item.ItemType = itemTypeTextBox.Text;
-            item.ItemDescription = itemDescriptionTextBox.Text;
-            item.EngineerID = int.Parse(engineerTextBox.Text);
-            item.LastUpdated = DateTime.Now;
-
-            using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
+            bool noEmptyTextBoxes = true;
+            foreach (TextBox textBox in textBoxes)
             {
-                connection.CreateTable<Item>();
-                connection.Update(item);
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    noEmptyTextBoxes = false;
+                    break;
+                }
             }
+            if (!noEmptyTextBoxes)
+            {
+                MessageBox.Show("All boxes must be filled in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                item.TicketNumber = int.Parse(ticketNumberTextBox.Text);
+                item.ItemType = itemTypeTextBox.Text;
+                item.ItemDescription = itemDescriptionTextBox.Text;
+                item.EngineerID = int.Parse(engineerTextBox.Text);
+                item.LastUpdated = DateTime.Now;
+                item.Location = locationTextBox.Text;
+                item.ItemStatus = itemStatusComboBox.Text;
 
-            Close();
+                using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
+                {
+                    connection.CreateTable<Item>();
+                    connection.Update(item);
+                }
+
+                Close();
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

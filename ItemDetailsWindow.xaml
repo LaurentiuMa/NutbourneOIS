@@ -9,7 +9,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NutbourneOIS"
         mc:Ignorable="d"
-        Title="ItemDetailsWindow" Height="750" Width="1200">
+        Title="Item Details" Height="750" Width="1200">
 
 
     <Grid Margin="10">
@@ -19,6 +19,7 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -37,7 +38,8 @@
                  PreviewTextInput="NumericOnly"
                  MaxLength="9"
                  Grid.Row="0"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 Margin="50,20,50,20"/>
 
         <Label x:Name="itemTypeLabel"
                Style="{StaticResource labelStyle}"
@@ -48,7 +50,8 @@
                  Style="{StaticResource textBoxStyle}"
                  MaxLength="25"
                  Grid.Row="1"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 Margin="50,20,50,20"/>
 
         <Label x:Name="itemDescriptionLabel"
                Style="{StaticResource labelStyle}"
@@ -60,9 +63,22 @@
                  VerticalScrollBarVisibility="Visible"
                  TextWrapping="Wrap"
                  Grid.Row="2"
-                 Grid.Column="2"
-                 Grid.RowSpan="2"/>
-
+                 Grid.Column="2" 
+                 Margin="10,10,10,10"/>
+        
+        <Label x:Name="ItemLocationLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Location"
+               Grid.Column="0"
+               Grid.Row="3"/>
+        <TextBox x:Name="locationTextBox"
+                 Style="{StaticResource textBoxStyle}"
+                 MaxLength="25"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Margin="50,20,50,20"
+                 />
+        
         <Label x:Name="engineerLabel"
                Style="{StaticResource labelStyle}"
                Content="Engineer"
@@ -73,22 +89,38 @@
                  MaxLength="25"
                  Grid.Row="4"
                  Grid.Column="1"
+                 Margin="50,20,50,20"
                  />
+        <Label x:Name="statusLabel"
+               Style="{StaticResource labelStyle}"
+               Content="Item status"
+               Grid.Column="0"
+               Grid.Row="5"/>
+        <ComboBox x:Name="itemStatusComboBox"
+                  Grid.Column="1"
+                  Grid.Row="5"
+                  Margin="50,25,50,25"
+                  FontFamily="Calibri"
+                  FontSize="30">
+            <ComboBoxItem IsSelected="True">Active</ComboBoxItem>
+            <ComboBoxItem>Inactive</ComboBoxItem>
+        </ComboBox>
 
         <Button Content="Update"
                 x:Name="updateButton"
                 Style="{StaticResource buttonStyle}"
                 Click="UpdateButton_Click"
                 Grid.Column="0"
-                Grid.Row="5"
+                Grid.Row="6"
+                Margin="100,20,100,20"
                 />
         <Button Content="Cancel"
                 x:Name="cancelButton"
                 Style="{StaticResource buttonStyle}"
-                Margin="500,35,100,35"
+                Margin="500,20,100,20"
                 Click="CancelButton_Click"
                 Grid.Column="1"
-                Grid.Row="5"/>
+                Grid.Row="6"/>
         
 
     </Grid>

@@ -27,42 +27,48 @@ namespace NutbourneOIS
             InitializeComponent();
         }
 
-        
-
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            if (passwordTextBox.Password == passwordConfirmationBox.Password && Utilities.IsValidEmail(emailTextBox.Text))
+            if (Utilities.ValidatePassword(passwordTextBox.Password))
             {
-                Tuple<string, string> passwordSaltPair = Utilities.GenerateSHA256Hash(passwordTextBox.Password, 10);
-                string hashedpassword = passwordSaltPair.Item1;
-                string salt = passwordSaltPair.Item2;
-
-                Engineer engineer = new Engineer()
+                if (passwordTextBox.Password == passwordConfirmationBox.Password && Utilities.IsValidEmail(emailTextBox.Text))
                 {
-                    FirstName = firstNameTextBox.Text,
-                    Surname = surnameTextBox.Text,
-                    Email = emailTextBox.Text,
-                    AccountType = accountTypeComboBox.Text,
-                    AccountStatus = "Active",
-                    Password = hashedpassword,
-                    Salt = salt
+                    Tuple<string, string> passwordSaltPair = Utilities.GenerateSHA256Hash(passwordTextBox.Password, 10);
+                    string hashedpassword = passwordSaltPair.Item1;
+                    string salt = passwordSaltPair.Item2;
 
-
-                };
-
-                using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
-                {
-                    connection.CreateTable<Engineer>();
-                    connection.Insert(engineer);
+                    Engineer engineer = new Engineer()
+                    {
+                        FirstName = firstNameTextBox.Text,
+                        Surname = surnameTextBox.Text,
+                        Email = emailTextBox.Text,
+                        AccountType = accountTypeComboBox.Text,
+                        AccountStatus = "Active",
+                        Password = hashedpassword,
+                        Salt = salt
+                    };
+                    using (SQLiteConnection connection = new SQLiteConnection(App.DatabasePath))
+                    {
+                        connection.CreateTable<Engineer>();
+                        connection.Insert(engineer);
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Passwords do not match or the email is in the incorrect format", 
+                                    "Error", 
+                                    MessageBoxButton.OK, 
+                                    MessageBoxImage.Information);
+                }
                 Close();
             }
-            else 
+            else
             {
-                MessageBox.Show("Passwords do not match or the email is in the incorrect format", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("The password must be between 9-30 characters, must contain at least ONE number and at least ONE symbol (%$^*)",
+                                    "Error",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Information);
             }
-
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

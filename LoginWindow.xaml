@@ -105,7 +105,8 @@
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
                          Height="25"
-                         Margin="63,0,0,0"/>
+                         Margin="63,0,0,0"
+                         KeyDown="PasswordField_KeyDown"/>
 
                     <iconPacks1:PackIconMaterial 
                     Kind="TextboxPassword"

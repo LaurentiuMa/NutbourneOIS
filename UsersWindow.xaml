@@ -13,7 +13,7 @@
         xmlns:local="clr-namespace:NutbourneOIS"
         xmlns:uc="clr-namespace:NutbourneOIS.Controls"
         mc:Ignorable="d"
-        Title="UsersWindow" Height="750" Width="1200">
+        Title="Users" Height="750" Width="1200">
    
     <Grid Margin="10">
         <Grid.ColumnDefinitions>

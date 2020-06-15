@@ -35,16 +35,15 @@ namespace NutbourneOIS.Controls
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ItemControl control = d as ItemControl;
-
-            if (control != null)
+            if (d is ItemControl control)
             {
-                control.idTextBlock.Text = ((e.NewValue as Item).ItemNumber).ToString();
+                control.idTextBlock.Text = "Item ID: " + ((e.NewValue as Item).ItemNumber).ToString();
                 control.ticketNumberTextBlock.Text = "Ticket #" + (e.NewValue as Item).TicketNumber;
-                control.itemTypeTextBlock.Text = (e.NewValue as Item).ItemType;
-                control.descriptionTextBlock.Text = (e.NewValue as Item).ItemDescription;
-                control.engineerTextBlock.Text = ((e.NewValue as Item).EngineerID).ToString();
+                control.itemTypeTextBlock.Text = "Item Type: " + (e.NewValue as Item).ItemType;
+                control.descriptionTextBlock.Text = "Description: " + (e.NewValue as Item).ItemDescription;
+                control.engineerTextBlock.Text = "Engineer ID: " + ((e.NewValue as Item).EngineerID).ToString();
                 control.dateTextBlock.Text = "Last Update: " + ((e.NewValue as Item).LastUpdated).ToString();
+                control.locationTextBlock.Text = "Location: " + ((e.NewValue as Item).Location);
             }
         }
 

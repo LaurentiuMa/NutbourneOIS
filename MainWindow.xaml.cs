@@ -26,6 +26,7 @@ namespace NutbourneOIS
         DateTime dateTimeOfInitialisation;
         List<int> listOfOutdatedItems;
         string combinedStringOfOutdatedItems;
+        bool displayActiveItems = true;
         public MainWindow(string accountType)
         {
             InitializeComponent();
@@ -45,7 +46,10 @@ namespace NutbourneOIS
 
             if (listSize != 0) 
             {
-                MessageBox.Show(combinedStringOfOutdatedItems, "OutdatedItems", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("The following items have not been updated for longer than a week and require attention: " + combinedStringOfOutdatedItems, 
+                                "OutdatedItems", 
+                                MessageBoxButton.OK, 
+                                MessageBoxImage.Information);
             }
 
         }
@@ -99,12 +103,18 @@ namespace NutbourneOIS
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabasePath))
             {
-                conn.CreateTable<Item>();
-                items = conn.Table<Item>().ToList().OrderBy(c => c.ItemNumber).ToList();
+                if (displayActiveItems)
+                {
+                   items = PullItems(conn, "Active");
+                }
+                else 
+                {
+                   items = PullItems(conn, "Inactive");
+                }
 
                 foreach (Item item in items)
                 {
-                    dateTimeOfItem = item.LastUpdated.AddDays(1);
+                    dateTimeOfItem = item.LastUpdated.AddDays(7);
                     if (DateTime.Compare(dateTimeOfItem, dateTimeOfInitialisation) <= 0)
                     {
                         listOfOutdatedItems.Add(item.ItemNumber);
@@ -123,5 +133,34 @@ namespace NutbourneOIS
             UsersWindow usersWindow = new UsersWindow();
             usersWindow.ShowDialog();
         }
+
+        private void ItemActivityButton_Click(object sender, RoutedEventArgs e)
+        {
+            displayActiveItems ^= true;
+            ReadDatabase();
+            DisplayAppropriateActivityLabel();
+        }
+
+        public List<Item> PullItems(SQLiteConnection connection, string activity) 
+        {
+            connection.CreateTable<Item>();
+            var items = (from c in connection.Table<Item>()
+                     where c.ItemStatus == activity
+                     select c).ToList();
+            return items;
+        }
+
+        private void DisplayAppropriateActivityLabel()
+        {
+            if (displayActiveItems)
+            {
+                ItemActivityButton.Content = "Inctive items";
+            }
+            else
+            {
+                ItemActivityButton.Content = "Active items";
+            }
+        }
+
     }
 }
