@@ -34,17 +34,8 @@ namespace NutbourneOIS
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            bool noEmptyTextBoxes = true;
-            foreach (TextBox textBox in textBoxes)
-            {
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    noEmptyTextBoxes = false;
-                    break;
-                }
-            }
-
-            if (!noEmptyTextBoxes)
+           
+            if (!Utilities.InitialiseTextBoxes(textBoxes))
             {
                 MessageBox.Show("All boxes must be filled in", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Controls;
 
 public class Utilities
 {
@@ -147,4 +149,19 @@ public class Utilities
         }
         return hex.ToString();
     }
+
+    public static bool InitialiseTextBoxes(List<TextBox> textBoxes) 
+    {
+        bool noEmptyTextBoxes = true;
+        foreach (TextBox textBox in textBoxes)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                noEmptyTextBoxes = false;
+                break;
+            }
+        }
+        return noEmptyTextBoxes;
+    }
+
 }
