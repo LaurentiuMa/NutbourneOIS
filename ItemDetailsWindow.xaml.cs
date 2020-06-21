@@ -2,17 +2,9 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace NutbourneOIS
 {
@@ -21,14 +13,15 @@ namespace NutbourneOIS
     /// </summary>
     public partial class ItemDetailsWindow : Window
     {
-        Item item;
-        List<TextBox> textBoxes = new List<TextBox>();
+        readonly Item item;
+        readonly List<TextBox> textBoxes = new List<TextBox>();
         public ItemDetailsWindow(Item item)
         {
             InitializeComponent();
 
             this.item = item;
 
+            // Fills the appropriate fields with their respective values in the DB
             ticketNumberTextBox.Text = item.TicketNumber.ToString();
             itemTypeTextBox.Text = item.ItemType;
             itemDescriptionTextBox.Text = item.ItemDescription;
@@ -36,6 +29,7 @@ namespace NutbourneOIS
             locationTextBox.Text = item.Location;
             itemStatusComboBox.Text = item.ItemStatus.ToString();
 
+            // Adds all of the text boxes to the list 
             textBoxes.Add(ticketNumberTextBox);
             textBoxes.Add(itemTypeTextBox);
             textBoxes.Add(itemDescriptionTextBox);
@@ -59,6 +53,7 @@ namespace NutbourneOIS
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            // Checks to make sure that no textboxes are left empty
             bool noEmptyTextBoxes = true;
             foreach (TextBox textBox in textBoxes)
             {
@@ -74,6 +69,7 @@ namespace NutbourneOIS
             }
             else
             {
+                // Writes all of the fields back to the DB, can be changed so that only fields that had gotten updated will be written.
                 item.TicketNumber = int.Parse(ticketNumberTextBox.Text);
                 item.ItemType = itemTypeTextBox.Text;
                 item.ItemDescription = itemDescriptionTextBox.Text;

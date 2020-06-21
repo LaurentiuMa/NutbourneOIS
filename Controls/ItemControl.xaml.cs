@@ -1,18 +1,6 @@
 ﻿using NOIS.Classes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace NutbourneOIS.Controls
 {
@@ -33,6 +21,7 @@ namespace NutbourneOIS.Controls
         public static readonly DependencyProperty ItemProperty =
             DependencyProperty.Register("Item", typeof(Item), typeof(ItemControl), new PropertyMetadata(new Item() { ItemNumber = 0, TicketNumber = 0, ItemType = "Laptop", ItemDescription = "lorem ipsum dolor", EngineerID = 0 }, SetText));
 
+        // Writes the appropriate values to each element of the ItemControl template
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is ItemControl control)
